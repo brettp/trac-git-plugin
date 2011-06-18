@@ -245,7 +245,7 @@ class Storage(object):
             self.logger.error("GIT control files missing in '%s'" % git_dir)
             if os.path.exists(__git_file_path('.git')):
                 self.logger.error("entry '.git' found in '%s'"
-                                  " -- maybe use that folder instead..." % git_dir)
+                                  " -- maybe use %s instead..." % os.path.join(git_dir, '.git'))
             raise GitError("GIT control files not found, maybe wrong directory?")
 
         self.logger.debug("PyGIT.Storage instance %d constructed" % id(self))
